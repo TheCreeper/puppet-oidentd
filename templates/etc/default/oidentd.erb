@@ -1,0 +1,28 @@
+###
+### File managed by Puppet
+###
+
+# options to use when starting oidentd as daemon:
+# -m    lookup masquaraded connections in /etc/oidentd_masq.users
+# -f    forward requests for masquaraded connections to real host
+# -q    don't log connections to oidentd
+# see oidentd(8) for detailed list
+<% if @default_options -%>
+OIDENT_OPTIONS='<%= @default_options %>'
+<% end -%>
+
+# user / group
+<% if @default_user -%>
+OIDENT_USER='<%= @default_user %>'
+<% end -%>
+<% if @default_group -%>
+OIDENT_GROUP='<%= @default_group %>'
+<% end -%>
+
+# Allow the default router to act as an oidentd proxy? (yes/no)
+# this is needed behind a masquarading router that runs oidentd -f
+# if your identd proxy is not the default router, you have to
+# manually specify it via -P
+<% if @default_behind_proxy -%>
+OIDENT_BEHIND_PROXY='<%= @default_behind_proxy %>'
+<% end -%>
