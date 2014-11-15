@@ -13,6 +13,7 @@ class oidentd::service {
 
 			enable => $oidentd::service_enable,
 			ensure => $oidentd::service_ensure,
+			hasstatus => false,
 		}
 	}
 }
